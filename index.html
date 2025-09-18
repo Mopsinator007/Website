@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emery</title>
+<link rel="icon" type="image/x-icon" href="http://static.photos/fitness/200x200/1">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0a0c15 0%, #19191a 100%); color: #fff; }
+  .red-text { color: #ff2600; }
+  .gradient-text { background: linear-gradient(90deg, #ff2600, #ff8a00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .social-icon { transition: all 0.3s ease; }
+  .social-icon:hover { transform: scale(1.1); opacity: 0.9; }
+  .tab-active { border-bottom: 2px solid #ff2600; }
+</style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+<div class="flex-1 container mx-auto px-4 sm:px-6 md:px-8">
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center text-center min-h-screen" data-aos="fade-up">
+    <img src="emery.jpeg" 
+       alt="Emery Logo" 
+       class="w-24 h-24 sm:w-28 sm:h-28 mb-6 rounded-full border-4 border-red-500/50 shadow-lg hover:scale-110 transition-transform">
+    <h1 class="text-3xl sm:text-5xl md:text-7xl font-bold mb-2">Hey, I'm <span class="red-text">Emery.</span></h1>
+    <h2 class="text-lg sm:text-xl md:text-3xl text-indigo-300 mb-12"> Aspiring Bodybuilder</h2>
+
+    <!-- Social buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <a href="https://www.instagram.com/emeryjharris/" class="social-icon bg-pink-600/70 hover:bg-pink-700/90 p-3 rounded-full"><i data-feather="instagram"></i></a>
+      <a href="https://www.tiktok.com/@emeryj" class="social-icon bg-black/70 hover:bg-black/90 p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@emeryj" class="social-icon bg-red-600/70 hover:bg-red-700/90 p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
+          <path d="M23.498 6.186a2.996 2.996 0 0 0-2.116-2.116C19.2 3.75 12 3.75 12 3.75s-7.2 0-9.382.32A2.996 2.996 0 0 0 .502 6.186 31.697 31.697 0 0 0 0 12a31.697 31.697 0 0 0 .502 5.814 2.996 2.996 0 0 0 2.116 2.116C4.8 20.25 12 20.25 12 20.25s7.2 0 9.382-.32a2.996 2.996 0 0 0 2.116-2.116A31.697 31.697 0 0 0 24 12a31.697 31.697 0 0 0-.502-5.814zM9.545 15.568V8.432l6.182 3.568-6.182 3.568z"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Tabs Section -->
+  <section class="max-w-5xl mx-auto mt-16 mb-20 px-2 sm:px-4 md:px-6" data-aos="fade-up">
+    <!-- Tabs -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <button class="tab-button tab-active font-bold text-lg" data-tab="phase">Current Phase</button>
+      <button class="tab-button font-bold text-lg" data-tab="pr">PR & Workouts</button>
+      <button class="tab-button font-bold text-lg" data-tab="show">Next Show</button>
+    </div>
+
+    <!-- Current Phase -->
+    <div id="phase" class="tab-content">
+      <div class="bg-slate-900/60 backdrop-blur-md p-4 sm:p-8 rounded-2xl shadow-lg">
+        <h4 class="text-2xl sm:text-3xl font-bold mb-6 text-center gradient-text">Current Phase</h4>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 items-center text-center">
+          <p class="text-base sm:text-lg md:text-xl">Phase: <span class="font-bold red-text">Cut</span></p>
+          <p class="text-base sm:text-lg md:text-xl">Starting Weight: <span class="font-bold red-text">250 lbs</span></p>
+          <p class="text-base sm:text-lg md:text-xl">Starting Body Fat: <span class="font-bold red-text">17%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PR & Workouts -->
+    <div id="pr" class="tab-content hidden">
+      <div class="bg-slate-900/60 backdrop-blur-md p-4 sm:p-8 rounded-2xl shadow-lg">
+        <h4 class="text-2xl sm:text-3xl font-bold mb-6 text-center gradient-text">Personal Records</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-center mb-8">
+          <div class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition transform shadow-lg">
+            <h5 class="font-bold mb-2 red-text">Squat</h5>
+            <p class="text-gray-200">505 lbs</p>
+          </div>
+          <div class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition transform shadow-lg">
+            <h5 class="font-bold mb-2 red-text">Bench</h5>
+            <p class="text-gray-200">375 lbs</p>
+          </div>
+          <div class="bg-slate-800/50 rounded-xl p-4 hover:scale-105 transition transform shadow-lg">
+            <h5 class="font-bold mb-2 red-text">Deadlift</h5>
+            <p class="text-gray-200">500 lbs</p>
+          </div>
+        </div>
+
+        <h5 class="text-xl sm:text-2xl font-bold text-center mb-6 gradient-text">Weekly Workouts</h5>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-2 sm:gap-4 text-center">
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 hover:scale-105 transition transform shadow-lg" data-aos="fade-up"><h6 class="font-bold mb-1 red-text">Mon</h6><p class="text-gray-200">Push</p></div>
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 hover:scale-105 transition transform shadow-lg" data-aos="fade-up" data-aos-delay="50"><h6 class="font-bold mb-1 red-text">Tue</h6><p class="text-gray-200">Pull</p></div>
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 hover:scale-105 transition transform shadow-lg" data-aos="fade-up" data-aos-delay="100"><h6 class="font-bold mb-1 red-text">Wed</h6><p class="text-gray-200">Legs</p></div>
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 text-gray-500 italic" data-aos="fade-up" data-aos-delay="150"><h6 class="font-bold mb-1">Thu</h6><p>Rest</p></div>
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 hover:scale-105 transition transform shadow-lg" data-aos="fade-up" data-aos-delay="200"><h6 class="font-bold mb-1 red-text">Fri</h6><p class="text-gray-200">Upper</p></div>
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 hover:scale-105 transition transform shadow-lg" data-aos="fade-up" data-aos-delay="250"><h6 class="font-bold mb-1 red-text">Sat</h6><p class="text-gray-200">Lower</p></div>
+          <div class="bg-slate-800/50 rounded-xl p-2 sm:p-4 text-gray-500 italic" data-aos="fade-up" data-aos-delay="300"><h6 class="font-bold mb-1">Sun</h6><p>Rest</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Show -->
+    <div id="show" class="tab-content hidden">
+      <div class="bg-slate-900/60 backdrop-blur-md p-4 sm:p-8 rounded-2xl shadow-lg text-center">
+        <h4 class="text-2xl sm:text-3xl font-bold mb-6 gradient-text">Next Bodybuilding Show</h4>
+        <p class="text-lg sm:text-xl mb-4">Show: <span id="show-name">TBA</span></p>
+        <p class="text-base sm:text-lg mb-6">Location: <span id="show-location">TBA</span></p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-center max-w-xl mx-auto">
+          <div class="bg-slate-800/50 p-2 sm:p-4 rounded-xl shadow-lg">
+            <p class="font-bold text-red-500 text-xl" id="days">- -</p><p>Days</p>
+          </div>
+          <div class="bg-slate-800/50 p-2 sm:p-4 rounded-xl shadow-lg">
+            <p class="font-bold text-red-500 text-xl" id="hours">- -</p><p>Hours</p>
+          </div>
+          <div class="bg-slate-800/50 p-2 sm:p-4 rounded-xl shadow-lg">
+            <p class="font-bold text-red-500 text-xl" id="minutes">- -</p><p>Minutes</p>
+          </div>
+          <div class="bg-slate-800/50 p-2 sm:p-4 rounded-xl shadow-lg">
+            <p class="font-bold text-red-500 text-xl" id="seconds">- -</p><p>Seconds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- About & Sponsors Section -->
+  <section class="flex flex-col md:flex-row md:justify-center gap-6 md:gap-8 mt-16 mb-20 px-2 sm:px-4">
+    <div class="bg-slate-900/60 backdrop-blur-md rounded-2xl p-4 sm:p-8 border border-slate-800/50 shadow-lg flex-1 hover:scale-105 transition transform">
+      <h3 class="text-2xl sm:text-3xl font-bold mb-6 text-center gradient-text">About Me</h3>
+      <p class="text-base sm:text-lg mb-4 leading-relaxed text-center">
+        Hey, I'm Emery James Harris - an aspiring bodybuilder sharing my fitness journey on Social Media.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-sm sm:text-base">
+        <div class="flex items-center justify-center">
+          <i data-feather="map-pin" class="mr-2 red-text"></i>
+          <span>North Carolina, USA</span>
+        </div>
+        <div class="flex items-center justify-center">
+          <i data-feather="calendar" class="mr-2 red-text"></i>
+          <span id="age-display">27</span>
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-900/60 backdrop-blur-md rounded-2xl p-4 sm:p-8 border border-slate-800/50 shadow-lg flex-1 hover:scale-105 transition transform">
+      <h3 class="text-2xl sm:text-3xl font-bold mb-6 text-center gradient-text">Sponsors</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-slate-800/50 rounded-xl p-4 text-center hover:scale-105 transition transform shadow-lg">
+          <h4 class="text-lg sm:text-xl font-bold mb-2">RAW Nutrition | Bum Energy</h4>
+          <p class="text-gray-300 mb-2">Use code <span class="font-bold red-text">EMERY</span> for 10% off</p>
+          <a href="https://getrawnutrition.com/" class="inline-block bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition">Shop Now</a>
+        </div>
+        <div class="bg-slate-800/50 rounded-xl p-4 text-center hover:scale-105 transition transform shadow-lg">
+          <h4 class="text-lg sm:text-xl font-bold mb-2">Kontrolled Insanity</h4>
+          <p class="text-gray-300 mb-2">Use code <span class="font-bold red-text">EMERY</span> for 10% off</p>
+          <a href="https://kontrolledinsanity.com/" class="inline-block bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="text-center text-sm sm:text-base text-gray-400 mt-auto bg-slate-900/70 py-6 backdrop-blur-sm">
+  <div class="flex justify-center items-center mb-2">
+    <span>Made with</span>
+    <img src="https://twemoji.maxcdn.com/v/14.0.2/svg/2764.svg" alt="❤" class="w-4 h-4 mx-1">
+    <span>by Mo</span>
+  </div>
+  <p>© Copyright 2025</p>
+</footer>
+
+<script>
+AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+feather.replace();
+
+// Age calculation
+const birthDate = new Date(1998, 4, 15);
+const today = new Date();
+let age = today.getFullYear() - birthDate.getFullYear();
+if(today.getMonth() < birthDate.getMonth() || (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) age--;
+document.getElementById('age-display').textContent = `${age} | 5.15.1998`;
+
+// Tabs
+const tabs = document.querySelectorAll('.tab-button');
+const contents = document.querySelectorAll('.tab-content');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('tab-active'));
+    tab.classList.add('tab-active');
+    contents.forEach(c => c.classList.add('hidden'));
+    document.getElementById(tab.dataset.tab).classList.remove('hidden');
+  });
+});
+
+// Next Show countdown
+let showName = "TBA"; 
+let showLocation = "TBA"; 
+let showDate = new Date("2025-11-01T10:00:00").getTime();
+
+document.getElementById("show-name").textContent = showName;
+document.getElementById("show-location").textContent = showLocation;
+
+function updateCountdown() {
+  if (!showDate) {
+    document.getElementById("days").textContent = "- -";
+    document.getElementById("hours").textContent = "- -";
+    document.getElementById("minutes").textContent = "- -";
+    document.getElementById("seconds").textContent = "- -";
+    return;
+  }
+  const now = new Date().getTime();
+  const distance = showDate - now;
+  if (distance < 0) return;
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
