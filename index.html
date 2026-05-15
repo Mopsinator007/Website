@@ -3,311 +3,754 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Emery</title>
+
   <link rel="icon" type="image/x-icon" href="emerypfp.jpeg" />
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
   <style>
+
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0c15 0%, #19191a 100%);
-      color: #f1f1f1;
-      min-height: 100vh;
+    :root{
+      --purple-main:#a855f7;
+      --purple-light:#d8b4fe;
+      --purple-dark:#6b21a8;
     }
 
-    .red-text { color: #ff2600; }
-    .gradient-text {
-      background: linear-gradient(90deg, #ff2600, #ff8a00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    *{
+      scroll-behavior:smooth;
     }
 
-    .social-icon {
-      transition: all 0.3s ease;
-    }
-    .social-icon:hover {
-      transform: scale(1.15);
-      opacity: 0.9;
+    body{
+      font-family:'Inter',sans-serif;
+
+      background:
+        radial-gradient(circle at top, rgba(168,85,247,0.16), transparent 40%),
+        linear-gradient(135deg,#09090f 0%,#14111d 100%);
+
+      color:#f1f1f1;
+
+      min-height:100vh;
+
+      overflow-x:hidden;
     }
 
-    .tab-button {
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .tab-active {
-      border-bottom: 3px solid #ff2600;
-      color: #ff2600;
+    .purple-text{
+      color:var(--purple-light);
     }
 
-    .section-card {
-      background: rgba(30, 30, 40, 0.65);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 38, 0, 0.12);
-      border-radius: 1.25rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .section-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    .gradient-text{
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff 0%,
+          #d8b4fe 25%,
+          #a855f7 50%,
+          #d8b4fe 75%,
+          #ffffff 100%
+        );
+
+      background-size:200% auto;
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+      animation:shine 5s linear infinite;
     }
 
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 1rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border-radius: 1rem;
+    @keyframes shine{
+      to{
+        background-position:200% center;
+      }
     }
 
-    @media (max-width: 640px) {
-      h1 { font-size: 2.8rem; }
-      h2 { font-size: 1.5rem; }
-      .section-card { padding: 1.5rem; }
+    .hero-title{
+      text-shadow:
+        0 0 25px rgba(168,85,247,0.25);
     }
+
+    .social-icon{
+      transition:all 0.35s ease;
+
+      box-shadow:
+        0 0 20px rgba(168,85,247,0.25);
+    }
+
+    .social-icon:hover{
+      transform:translateY(-5px) scale(1.12);
+    }
+
+    .tab-button{
+      padding:0.75rem 1.5rem;
+
+      font-weight:600;
+
+      transition:all 0.3s;
+    }
+
+    .tab-active{
+      border-bottom:3px solid var(--purple-main);
+
+      color:var(--purple-light);
+    }
+
+    .section-card{
+      position:relative;
+
+      overflow:hidden;
+
+      background:rgba(25,25,35,0.72);
+
+      backdrop-filter:blur(14px);
+
+      border:1px solid rgba(168,85,247,0.25);
+
+      border-radius:1.25rem;
+
+      box-shadow:
+        0 0 35px rgba(168,85,247,0.12);
+
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .section-card:hover{
+      transform:translateY(-5px);
+
+      box-shadow:
+        0 0 50px rgba(168,85,247,0.22);
+    }
+
+    .section-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255,255,255,0.03),
+          transparent
+        );
+
+      transform:translateX(-100%);
+
+      animation:shimmer 7s infinite;
+    }
+
+    @keyframes shimmer{
+      100%{
+        transform:translateX(100%);
+      }
+    }
+
+    .video-wrapper{
+      position:relative;
+
+      padding-bottom:56.25%;
+
+      height:0;
+
+      overflow:hidden;
+
+      border-radius:1rem;
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.55);
+    }
+
+    .video-wrapper iframe{
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:100%;
+
+      border-radius:1rem;
+    }
+
+    .countdown-box{
+
+      border:1px solid rgba(168,85,247,0.2);
+
+      box-shadow:
+        inset 0 0 15px rgba(168,85,247,0.08);
+    }
+
+    /* BIRTHDAY ONLY */
+
+    .birthday-banner{
+
+      position:fixed;
+
+      top:25px;
+      left:50%;
+
+      transform:translateX(-50%);
+
+      padding:14px 30px;
+
+      border-radius:999px;
+
+      background:rgba(168,85,247,0.18);
+
+      border:1px solid rgba(216,180,254,0.4);
+
+      backdrop-filter:blur(18px);
+
+      color:white;
+
+      font-weight:700;
+
+      z-index:9999;
+
+      display:none;
+
+      box-shadow:
+        0 0 35px rgba(168,85,247,0.35);
+
+      animation:floatBanner 3s ease-in-out infinite;
+    }
+
+    .birthday-active .birthday-banner{
+      display:flex;
+    }
+
+    @keyframes floatBanner{
+
+      0%,100%{
+        transform:
+          translateX(-50%)
+          translateY(0px);
+      }
+
+      50%{
+        transform:
+          translateX(-50%)
+          translateY(-6px);
+      }
+
+    }
+
+    .birthday-glow{
+
+      position:fixed;
+
+      inset:-200px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(168,85,247,0.12) 0%,
+          transparent 70%
+        );
+
+      animation:rotateGlow 18s linear infinite;
+
+      pointer-events:none;
+
+      display:none;
+    }
+
+    .birthday-active .birthday-glow{
+      display:block;
+    }
+
+    @keyframes rotateGlow{
+
+      from{
+        transform:rotate(0deg);
+      }
+
+      to{
+        transform:rotate(360deg);
+      }
+
+    }
+
+    .confetti{
+
+      position:fixed;
+
+      top:-20px;
+
+      width:10px;
+      height:10px;
+
+      border-radius:2px;
+
+      z-index:9999;
+
+      animation:fall linear forwards;
+    }
+
+    @keyframes fall{
+
+      to{
+
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+
+        opacity:0;
+
+      }
+
+    }
+
+    @media (max-width:640px){
+
+      h1{
+        font-size:2.8rem;
+      }
+
+      h2{
+        font-size:1.5rem;
+      }
+
+      .section-card{
+        padding:1.5rem;
+      }
+
+    }
+
   </style>
 </head>
+
 <body class="flex flex-col min-h-screen">
+
+  <!-- BIRTHDAY -->
+  <div class="birthday-banner">
+    🎉 Happy Birthday Emery 🎂
+  </div>
+
+  <div class="birthday-glow"></div>
 
   <div class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 
-    <!-- Hero -->
-    <section class="flex flex-col items-center justify-center text-center py-20 sm:py-32 min-h-screen" data-aos="fade-up">
+    <!-- HERO -->
+    <section
+      class="flex flex-col items-center justify-center text-center py-20 sm:py-32 min-h-screen"
+      data-aos="fade-up">
+
       <img
         src="emerypfp.jpeg"
         alt="Emery"
-        class="w-28 h-28 sm:w-32 sm:h-32 mb-8 rounded-full border-4 border-red-500/40 shadow-xl hover:scale-110 transition-transform duration-300"
+        class="w-28 h-28 sm:w-32 sm:h-32 mb-8 rounded-full border-4 border-purple-400/40 shadow-xl hover:scale-110 transition-transform duration-300"
       />
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 tracking-tight">
-        Hey, I'm <span class="red-text">Emery.</span>
+
+      <h1 class="hero-title text-4xl sm:text-5xl md:text-7xl font-bold mb-3 tracking-tight">
+        Hey, I'm <span class="purple-text">Emery.</span>
       </h1>
-      <h2 class="text-xl sm:text-2xl md:text-3xl text-indigo-300/90 mb-12 font-medium">
+
+      <h2 class="text-xl sm:text-2xl md:text-3xl text-purple-200/90 mb-12 font-medium">
         Aspiring Bodybuilder
       </h2>
 
-      <!-- Socials -->
+      <!-- SOCIALS -->
       <div class="flex flex-wrap justify-center gap-5 mb-12">
-        <a href="https://www.instagram.com/emeryjharris/" class="social-icon bg-pink-600/70 hover:bg-pink-700 p-4 rounded-full">
+
+        <a href="https://www.instagram.com/emeryjharris/"
+          class="social-icon bg-purple-600/70 hover:bg-purple-700 p-4 rounded-full">
           <i data-feather="instagram" class="w-6 h-6"></i>
         </a>
-        <a href="https://www.tiktok.com/@emeryj" class="social-icon bg-black/70 hover:bg-black/90 p-4 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+
+        <a href="https://www.tiktok.com/@emeryj"
+          class="social-icon bg-black/70 hover:bg-black/90 p-4 rounded-full">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24">
+
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+
           </svg>
+
         </a>
-        <a href="https://www.youtube.com/@emeryjharris" class="social-icon bg-red-600/70 hover:bg-red-700 p-4 rounded-full">
+
+        <a href="https://www.youtube.com/@emeryjharris"
+          class="social-icon bg-purple-600/70 hover:bg-purple-700 p-4 rounded-full">
           <i data-feather="youtube" class="w-6 h-6"></i>
         </a>
+
       </div>
 
-      <!-- Latest Video -->
-      <div class="w-full max-w-4xl mx-auto mb-20" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-2xl sm:text-3xl font-bold mb-7 text-center gradient-text">Latest Video</h3>
+      <!-- VIDEO -->
+      <div class="w-full max-w-4xl mx-auto mb-20"
+        data-aos="fade-up"
+        data-aos-delay="200">
+
+        <h3 id="video-title"
+          class="text-2xl sm:text-3xl font-bold mb-7 text-center gradient-text">
+          Latest Video
+        </h3>
+
         <div class="section-card overflow-hidden p-5 sm:p-8">
+
           <div class="video-wrapper mb-7">
+
             <iframe
               src="https://www.youtube.com/embed/a4vnW8ktteg"
               title="be you, for all – Emery Harris"
               frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+              allowfullscreen>
+            </iframe>
+
           </div>
+
           <div class="text-center px-3 sm:px-6">
-            <h4 class="text-xl sm:text-2xl font-semibold mb-3 text-white">"be you, for all"</h4>
-            <p class="text-gray-400 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+
+            <h4 class="text-xl sm:text-2xl font-semibold mb-3 text-white">
+              "be you, for all"
+            </h4>
+
+            <p id="video-desc"
+              class="text-gray-400 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+
               Raw thoughts on authenticity, showing up fully, and living without apology.
+
             </p>
+
           </div>
+
         </div>
+
       </div>
 
-      <!-- Scroll indicator -->
-      <div id="scroll-down" class="fixed bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-50 transition-opacity duration-500">
-        <span class="text-sm text-indigo-300/80 mb-1.5">Scroll Down</span>
-        <svg class="w-7 h-7 text-indigo-300/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      <!-- SCROLL -->
+      <div id="scroll-down"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-50 transition-opacity duration-500">
+
+        <span class="text-sm text-purple-200/80 mb-1.5">
+          Scroll Down
+        </span>
+
+        <svg
+          class="w-7 h-7 text-purple-200/80"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24">
+
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7" />
+
         </svg>
+
       </div>
+
     </section>
 
-    <!-- Tabs -->
+    <!-- TABS -->
     <section class="py-16" data-aos="fade-up">
+
       <div class="flex flex-wrap justify-center gap-4 sm:gap-8 mb-10">
-        <button class="tab-button tab-active" data-tab="phase">Current Phase</button>
-        <button class="tab-button" data-tab="pr">PR & Workouts</button>
-        <button class="tab-button" data-tab="show">Next Show</button>
+
+        <button class="tab-button tab-active" data-tab="phase">
+          Current Phase
+        </button>
+
+        <button class="tab-button" data-tab="pr">
+          PR & Workouts
+        </button>
+
+        <button class="tab-button" data-tab="show">
+          Next Show
+        </button>
+
       </div>
 
-      <div id="phase" class="tab-content section-card p-6 sm:p-10">
-        <h4 class="text-2xl sm:text-3xl font-bold mb-8 text-center gradient-text">Current Phase</h4>
+      <!-- PHASE -->
+      <div id="phase"
+        class="tab-content section-card p-6 sm:p-10">
+
+        <h4 class="text-2xl sm:text-3xl font-bold mb-8 text-center gradient-text">
+          Current Phase
+        </h4>
+
         <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 text-center text-lg sm:text-xl">
-          <p>Phase: <span class="font-bold red-text">Maintenance</span></p>
-          <p>Starting Weight: <span class="font-bold red-text">205 lbs</span></p>
-          <p>Starting Body Fat: <span class="font-bold red-text">15%</span></p>
+
+          <p>
+            Phase:
+            <span class="font-bold purple-text">
+              Maintenance
+            </span>
+          </p>
+
+          <p>
+            Starting Weight:
+            <span class="font-bold purple-text">
+              205 lbs
+            </span>
+          </p>
+
+          <p>
+            Starting Body Fat:
+            <span class="font-bold purple-text">
+              15%
+            </span>
+          </p>
+
         </div>
+
       </div>
 
-      <div id="pr" class="tab-content hidden section-card p-6 sm:p-10">
-        <h4 class="text-2xl sm:text-3xl font-bold mb-8 text-center gradient-text">Personal Records</h4>
+      <!-- PR -->
+      <div id="pr"
+        class="tab-content hidden section-card p-6 sm:p-10">
+
+        <h4 class="text-2xl sm:text-3xl font-bold mb-8 text-center gradient-text">
+          Personal Records
+        </h4>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-          <div class="bg-slate-800/40 rounded-xl p-6 text-center hover:scale-[1.03] transition">
-            <h5 class="font-bold text-xl red-text mb-2">Squat</h5>
+
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-6 text-center hover:scale-[1.03] transition">
+            <h5 class="font-bold text-xl purple-text mb-2">Squat</h5>
             <p class="text-2xl font-semibold">505 lbs</p>
           </div>
-          <div class="bg-slate-800/40 rounded-xl p-6 text-center hover:scale-[1.03] transition">
-            <h5 class="font-bold text-xl red-text mb-2">Bench</h5>
+
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-6 text-center hover:scale-[1.03] transition">
+            <h5 class="font-bold text-xl purple-text mb-2">Bench</h5>
             <p class="text-2xl font-semibold">375 lbs</p>
           </div>
-          <div class="bg-slate-800/40 rounded-xl p-6 text-center hover:scale-[1.03] transition">
-            <h5 class="font-bold text-xl red-text mb-2">Deadlift</h5>
+
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-6 text-center hover:scale-[1.03] transition">
+            <h5 class="font-bold text-xl purple-text mb-2">Deadlift</h5>
             <p class="text-2xl font-semibold">500 lbs</p>
           </div>
+
         </div>
 
-        <h5 class="text-xl sm:text-2xl font-bold text-center mb-8 gradient-text">Weekly Workouts</h5>
-        <div class="grid grid-cols-2 sm:grid-cols-7 gap-4 text-center">
-          <div class="bg-slate-800/40 rounded-xl p-4 hover:scale-105 transition"><div class="font-bold red-text">Mon</div><div>Push</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-4 hover:scale-105 transition"><div class="font-bold red-text">Tue</div><div>Pull</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-4 hover:scale-105 transition"><div class="font-bold red-text">Wed</div><div>Legs</div></div>
-          <div class="bg-slate-800/30 rounded-xl p-4 text-gray-500 italic"><div class="font-bold">Thu</div><div>Rest</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-4 hover:scale-105 transition"><div class="font-bold red-text">Fri</div><div>Push</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-4 hover:scale-105 transition"><div class="font-bold red-text">Sat</div><div>Pull</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-4 hover:scale-105 transition"><div class="font-bold red-text">Sun</div><div>Legs</div></div>
-        </div>
       </div>
 
-      <div id="show" class="tab-content hidden section-card p-6 sm:p-10 text-center">
-        <h4 class="text-2xl sm:text-3xl font-bold mb-8 gradient-text">First Bodybuilding Show</h4>
-        <p class="text-xl mb-4">Show: <span id="show-name" class="font-bold">NPC Elite Muscle Classic</span></p>
-        <p class="text-lg mb-8">Location: <span id="show-location" class="font-bold">Greensboro, NC</span></p>
+      <!-- SHOW -->
+      <div id="show"
+        class="tab-content hidden section-card p-6 sm:p-10 text-center">
+
+        <h4 class="text-2xl sm:text-3xl font-bold mb-8 gradient-text">
+          First Bodybuilding Show
+        </h4>
+
+        <p class="text-xl mb-4">
+          Show:
+          <span class="font-bold">
+            NPC Elite Muscle Classic
+          </span>
+        </p>
+
+        <p class="text-lg mb-8">
+          Location:
+          <span class="font-bold">
+            Greensboro, NC
+          </span>
+        </p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          <div class="bg-slate-800/40 rounded-xl p-5"><div id="days" class="text-3xl font-bold red-text">- -</div><div>Days</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-5"><div id="hours" class="text-3xl font-bold red-text">- -</div><div>Hours</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-5"><div id="minutes" class="text-3xl font-bold red-text">- -</div><div>Minutes</div></div>
-          <div class="bg-slate-800/40 rounded-xl p-5"><div id="seconds" class="text-3xl font-bold red-text">- -</div><div>Seconds</div></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About + Sponsors -->
-    <section class="grid md:grid-cols-2 gap-6 lg:gap-8 py-16 md:py-20 items-start">
-      <!-- About Me -->
-      <div class="section-card p-6 sm:p-8 flex flex-col items-center text-center">
-        <h3 class="text-2xl sm:text-3xl font-bold mb-4 gradient-text">About Me</h3>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-5 max-w-md">
-          Hey, I'm Emery James Harris — an aspiring bodybuilder sharing my fitness journey on social media.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6 sm:gap-10 text-gray-300 text-sm sm:text-base">
-          <div class="flex items-center gap-2">
-            <i data-feather="map-pin" class="red-text w-5 h-5"></i>
-            <span>North Carolina, USA</span>
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-5">
+            <div id="days" class="text-3xl font-bold purple-text">- -</div>
+            <div>Days</div>
           </div>
-          <div class="flex items-center gap-2">
-            <i data-feather="calendar" class="red-text w-5 h-5"></i>
-            <span id="age-display"></span>
+
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-5">
+            <div id="hours" class="text-3xl font-bold purple-text">- -</div>
+            <div>Hours</div>
           </div>
+
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-5">
+            <div id="minutes" class="text-3xl font-bold purple-text">- -</div>
+            <div>Minutes</div>
+          </div>
+
+          <div class="countdown-box bg-slate-800/40 rounded-xl p-5">
+            <div id="seconds" class="text-3xl font-bold purple-text">- -</div>
+            <div>Seconds</div>
+          </div>
+
         </div>
+
       </div>
 
-      <!-- Sponsors -->
-      <div class="section-card p-6 sm:p-8">
-        <h3 class="text-2xl sm:text-3xl font-bold mb-6 text-center gradient-text">Sponsors</h3>
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div class="bg-slate-800/40 rounded-xl p-5 text-center hover:scale-[1.02] transition">
-            <h4 class="font-bold text-base sm:text-lg mb-2">Blackstone Labs</h4>
-            <p class="text-gray-300 text-sm mb-3">
-              Use code <span class="font-bold red-text">EMERY</span> for 10% off
-            </p>
-            <a href="https://blackstonelabs.com/" class="inline-block bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg font-medium text-sm transition">
-              Shop Now
-            </a>
-          </div>
-
-          <div class="bg-slate-800/40 rounded-xl p-5 text-center hover:scale-[1.02] transition">
-            <h4 class="font-bold text-base sm:text-lg mb-2">Zone Smelling Salts</h4>
-            <p class="text-gray-300 text-sm mb-3">
-              Use code <span class="font-bold red-text">EMERY</span> for 10% off
-            </p>
-            <a href="https://zonesmellingsalts.com/" class="inline-block bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg font-medium text-sm transition">
-              Shop Now
-            </a>
-          </div>
-
-          <div class="bg-slate-800/40 rounded-xl p-5 text-center hover:scale-[1.02] transition sm:col-span-2">
-            <h4 class="font-bold text-base sm:text-lg mb-2">Kontrolled Insanity</h4>
-            <p class="text-gray-300 text-sm mb-3">
-              Use code <span class="font-bold red-text">EMERY</span> for 10% off
-            </p>
-            <a href="https://kontrolledinsanity.com/" class="inline-block bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg font-medium text-sm transition">
-              Shop Now
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
 
   </div>
 
-  <footer class="mt-auto bg-slate-950/60 backdrop-blur-md py-8 text-center text-gray-400 border-t border-slate-800/50">
+  <!-- FOOTER -->
+  <footer class="mt-auto bg-slate-950/60 backdrop-blur-md py-8 text-center text-gray-400 border-t border-purple-500/10">
+
     <div class="flex justify-center items-center gap-2 mb-2">
-      Made with <img src="https://twemoji.maxcdn.com/v/14.0.2/svg/2764.svg" alt="heart" class="w-5 h-5 mx-1" /> by Mo
+
+      Made with
+
+      <img
+        src="https://twemoji.maxcdn.com/v/14.0.2/svg/2764.svg"
+        alt="heart"
+        class="w-5 h-5 mx-1" />
+
+      by Mo
+
     </div>
+
     <p>© Copyright 2025</p>
+
   </footer>
 
   <script>
-    AOS.init({ duration: 800, once: true });
-    feather.replace();
 
-    // Age calculation
-    const birth = new Date(1998, 4, 15);
-    const now = new Date();
-    let age = now.getFullYear() - birth.getFullYear();
-    if (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate())) age--;
-    document.getElementById('age-display').textContent = `${age} | 5.15.1998`;
+    AOS.init({
+      duration:800,
+      once:true
+    });
+
+    feather.replace();
 
     // Tabs
     document.querySelectorAll('.tab-button').forEach(btn => {
+
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('tab-active'));
+
+        document.querySelectorAll('.tab-button')
+          .forEach(b => b.classList.remove('tab-active'));
+
         btn.classList.add('tab-active');
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
-        document.getElementById(btn.dataset.tab).classList.remove('hidden');
+
+        document.querySelectorAll('.tab-content')
+          .forEach(c => c.classList.add('hidden'));
+
+        document.getElementById(btn.dataset.tab)
+          .classList.remove('hidden');
+
       });
+
     });
 
     // Countdown
-    let showDate = new Date("November 7, 2026 00:00:00").getTime();
-    function updateCountdown() {
+    let showDate =
+      new Date("November 7, 2026 00:00:00").getTime();
+
+    function updateCountdown(){
+
       const dist = showDate - Date.now();
-      if (dist < 0) return;
-      document.getElementById("days").textContent = Math.floor(dist / 86400000);
-      document.getElementById("hours").textContent = Math.floor((dist % 86400000) / 3600000);
-      document.getElementById("minutes").textContent = Math.floor((dist % 3600000) / 60000);
-      document.getElementById("seconds").textContent = Math.floor((dist % 60000) / 1000);
+
+      if(dist < 0) return;
+
+      document.getElementById("days").textContent =
+        Math.floor(dist / 86400000);
+
+      document.getElementById("hours").textContent =
+        Math.floor((dist % 86400000) / 3600000);
+
+      document.getElementById("minutes").textContent =
+        Math.floor((dist % 3600000) / 60000);
+
+      document.getElementById("seconds").textContent =
+        Math.floor((dist % 60000) / 1000);
+
     }
-    setInterval(updateCountdown, 1000);
+
+    setInterval(updateCountdown,1000);
+
     updateCountdown();
 
     // Scroll fade
-    const scrollEl = document.getElementById('scroll-down');
+    const scrollEl =
+      document.getElementById('scroll-down');
+
     window.addEventListener('scroll', () => {
-      scrollEl.style.opacity = window.scrollY > 120 ? '0' : '1';
+
+      scrollEl.style.opacity =
+        window.scrollY > 120 ? '0' : '1';
+
     });
+
+    /* =========================
+       BIRTHDAY MODE ONLY MAY 15
+    ========================= */
+
+    const today = new Date();
+
+    const isBirthday =
+      today.getMonth() === 4 &&
+      today.getDate() === 15;
+
+    if(isBirthday){
+
+      document.body.classList.add('birthday-active');
+
+      document.getElementById('video-title')
+        .textContent = 'Birthday Special 🎂';
+
+      document.getElementById('video-desc')
+        .textContent =
+          'Celebrating another year stronger, wiser, and more motivated than ever.';
+
+      // Confetti
+      function createConfetti(){
+
+        const confetti =
+          document.createElement('div');
+
+        confetti.classList.add('confetti');
+
+        confetti.style.left =
+          Math.random() * window.innerWidth + 'px';
+
+        confetti.style.animationDuration =
+          (Math.random() * 4 + 4) + 's';
+
+        confetti.style.width =
+          (Math.random() * 8 + 6) + 'px';
+
+        confetti.style.height =
+          confetti.style.width;
+
+        confetti.style.background =
+          [
+            '#a855f7',
+            '#d8b4fe',
+            '#ffffff',
+            '#c084fc'
+          ][Math.floor(Math.random() * 4)];
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+          confetti.remove();
+
+        }, 8000);
+
+      }
+
+      setInterval(createConfetti,180);
+
+    }
+
   </script>
+
 </body>
 </html>
